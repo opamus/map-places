@@ -1,35 +1,9 @@
 <?xml version="1.0"?>
-<table>
-  <markers>
-    <marker name="id">5</marker>
-    <marker name="name">Nomad</marker>
-    <marker name="address">16 Foster Street, Surry Hills, NSW</marker>
-    <marker name="latitude">-33.879917</marker>
-    <marker name="longitude">151.210449</marker>
-    <marker name="type">Bar</marker>
-  </markers>
-  <markers>
-    <marker name="id">2</marker>
-    <marker name="name">Young Henrys</marker>
-    <marker name="address">76 Wilford Street, Newtown, NSW</marker>
-    <marker name="latitude">-33.898113</marker>
-    <marker name="longitude">151.174469</marker>
-    <marker name="type">Bar</marker>
-  </markers>
-  <markers>
-    <marker name="id">1</marker>
-    <marker name="name">Love Fish</marker>
-    <marker name="address">580 Darling Street, Rozelle, NSW</marker>
-    <marker name="latitude">-33.861034</marker>
-    <marker name="longitude">151.171936</marker>
-    <marker name="type">restaurant</marker>
-  </markers>
-  <markers>
-    <marker name="id">8</marker>
-    <marker name="name">Red Lantern</marker>
-    <marker name="address">60 Riley Street, Darlinghurst, NSW</marker>
-    <marker name="latitude">-33.874737</marker>
-    <marker name="longitude">151.215530</marker>
-    <marker name="type">restaurant</marker>
-  </markers>
-</table>
+<markers>
+  <marker id="5" name="Nomad" address="16 Foster Street, Surry Hills, NSW" latitude="-33.879917" longitude="151.210449" type="bar"/>
+  <marker id="2" name="Young Henrys" address="76 Wilford Street, Newtown, NSW" latitude="-33.898113" longitude="151.174469" type="bar"/>
+  <marker id="35" name="Kauppa" address="25 Foster Street, Surry Hills, NSW" latitude="-33.698112" longitude="151.474472" type="shop"/>
+  <marker id="1" name="Love Fish" address="580 Darling Street, Rozelle, NSW" latitude="-33.861034" longitude="151.171936" type="restaurant"/>
+  <marker id="36" name="Koti" address="Tolsankuja 5 A 2" latitude="60.120300" longitude="24.472317" type="home"/>
+  <marker id="8" name="Red Lantern" address="60 Riley Street, Darlinghurst, NSW" latitude="-33.874737" longitude="151.215530" type="restaurant"/>
+</markers>

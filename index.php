@@ -36,13 +36,13 @@
                     <input type="text" name="name" class="form-ctrl" value="<?php echo $name; ?>" placeholder="Location name">
                 </div>
                 <div class="form-items">
-                    <input type="text" name="address" class="form-ctrl" value="<?php echo $address; ?>" placeholder="Address">
+                    <input type="text" name="address" class="form-ctrl" value="<?php echo $address; ?>" placeholder="Address (E.g. Kampinkuja 1)">
                 </div>
                 <div class="form-items">
                     <input type="number" name="latitude" class="form-ctrl" step="0.000001" value="<?php echo $latitude; ?>" placeholder="Latitude">
                 </div>
                 <div class="form-items">
-                    <input type="number" name="longitude" class="form-ctrl" step="0.000001" value="<?php echo $longitude; ?>" placeholder="Longitude">
+                    <input type="number" name="longitude" class="form-ctrl" step="0.000001" value="<?php echo $longitude; ?>" placeholder="Longitude ">
                 </div>
                 <div class="form-items">
                     <input type="text" name="type" class="form-ctrl" value="<?php echo $type; ?>" placeholder="Location type (E.g. Restaurant)">
@@ -60,7 +60,7 @@
         
         <div class="center">
         <?php 
-            $mysqli = new mysqli('localhost', 'Opa', 'y9zdxd66', 'map_places') or die(mysqli_error($mysqli));
+            $mysqli = new mysqli('localhost', 'Opa', 'password', 'map_places') or die(mysqli_error($mysqli));
             $result = $mysqli->query("SELECT * FROM markers") or die($mysqli->error);
         ?>
             <h2>Added markers</h2>

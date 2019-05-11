@@ -11,6 +11,7 @@ $id = 0;
 $address = '';
 $latitude = '';
 $longitude = '';
+$name = '';
 $type = '';
 
 // Insert query
@@ -106,12 +107,26 @@ $dom->save('xml/'.$filename);
 $name = ''; */
 
 
-// Set the active MySQL database
-$db_selected = mysql_select_db($database, $mysqli) or die($mysqli->error());
+$dom = new DOMDocument;
+$node = $dom->createElement("markers");
+$parnode = $dom->appendChild($node);
+$filename = "markers.xml";
 
 // Select all the rows in the markers table
-$query = "SELECT * FROM markers";
-$result = mysqli_query($mysqli, $query) or die($mysqli->error());
+$result = $mysqli->query("SELECT * FROM markers") or die($mysqli->error());
 
-header("Content-type: text/xml");
+while ($row = @mysqli_fetch_assoc($result)){
+  $node = $dom->createElement("marker");
+  $newnode = $parnode->appendChild($node);
+  $newnode->setAttribute("id",$row['id']);
+  $newnode->setAttribute("name",$row['name']);
+  $newnode->setAttribute("address", $row['address']);
+  $newnode->setAttribute("latitude", $row['latitude']);
+  $newnode->setAttribute("longitude", $row['longitude']);
+  $newnode->setAttribute("type", $row['type']);
+}
 
+$dom->formatOutput = true;
+$finalstring = $dom->saveXML();
+$dom->save($filename); // save as file
+$dom->save('xml/'.$filename);
