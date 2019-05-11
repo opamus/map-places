@@ -1,0 +1,112 @@
+$font-stack:    Helvetica, sans-serif;
+
+body {
+  padding: 0;
+  margin: 0;
+  font: 100% $font-stack;
+  background-color: #c9d3d8;
+}
+
+.alert {
+    height: 20px;
+    width: 100%;
+    background-color: rgba(255,0,0,0.2);
+    color: black;
+    border-bottom: 1px solid rgba(255,0,0,0.3);
+    padding-left: 10px;
+    padding-top: 6px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.center {
+    width: 90%;
+    min-width: 900px;
+    margin: auto;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    text-align: center;
+    
+    table {
+        padding: 20px;
+        width: 100%;
+    }
+    
+    td {
+        padding-top: 12px;
+    }
+}
+
+.btn {
+   text-decoration: none;
+   padding: 8px;
+   border-radius: 5px;
+   color: white;
+   background-color: #7cbde8;
+   text-transform: uppercase;
+   font-size: 12px;
+    &:hover {
+        background-color: #57ace5;
+    }
+}
+
+.btn-delete {
+   text-decoration: none;
+   padding: 8px;
+   border-radius: 5px;
+   background-color: #e87d8b;
+   color: white;
+   text-transform: uppercase;
+   font-size: 12px;
+    &:hover {
+        background-color: #e55b6d;
+    }
+}
+
+.btn-save {
+   text-decoration: none;
+   padding: 15px;
+   width: 80px;
+   border-radius: 5px;
+   background-color: #7cbde8;
+   color: white;
+   border: none;
+   text-transform: uppercase;
+   font-size: 13px;
+    &:hover {
+        background-color: #57ace5;
+    }
+}
+
+.form-container {
+    width: 55%;
+    margin: auto;
+    margin-top: 25px;
+    padding: 55px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 31px 29px 0px rgba(0,0,0,0.25);
+    h2 {
+        text-align: center;
+        color: rgb(152,160,163);
+        margin-bottom: 35px;
+    }
+    form {
+        width: 315px;
+        margin: auto;
+    }
+    .form-items {
+        padding: 5px;
+    }
+    input {
+        padding: 9px;
+        border-radius: 12px;
+        border: 1px solid gray;
+        width: 287px;
+    }
+    button {
+        margin-left: 37%;
+        margin-top: 10px;
+        cursor: pointer;
+    }
+}
