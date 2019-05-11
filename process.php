@@ -8,7 +8,6 @@ $mysqli = new mysqli('localhost', $username, $password, $database) or die(mysqli
 
 $update = false;
 $id = 0;
-$name = '';
 $address = '';
 $latitude = '';
 $longitude = '';
@@ -70,9 +69,9 @@ if (isset ($_POST['update'])){
     header('location: index.php');
 }
 
-$filename = "markers.xml";
+/* $filename = "markers.xml";
 
-$result = $mysqli->query("SELECT * FROM markers") or die($mysqli->error());
+$result = $mysqli->query("SELECT * FROM markers WHERE 1") or die($mysqli->error());
 
 //Create new document 
 $dom = new DOMDocument;
@@ -104,4 +103,15 @@ $finalstring = $dom->saveXML(); // put string in finalstring
 $dom->save($filename); // save as file
 $dom->save('xml/'.$filename);
 
-$name = '';
+$name = ''; */
+
+
+// Set the active MySQL database
+$db_selected = mysql_select_db($database, $mysqli) or die($mysqli->error());
+
+// Select all the rows in the markers table
+$query = "SELECT * FROM markers";
+$result = mysqli_query($mysqli, $query) or die($mysqli->error());
+
+header("Content-type: text/xml");
+

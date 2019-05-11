@@ -14,7 +14,7 @@
     </div>
       
     <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCE3RxnrO2nDIBpmjoE0WmnZGsNdsvKFjQ&callback=initMap">
+    src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
     </script>
 
     <script type="text/javascript" src="script.js"></script> 
