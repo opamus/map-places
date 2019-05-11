@@ -1,8 +1,10 @@
 <?php
 
+require("phpsqlajax_dbinfo.php");
+
 session_start();
 // Connect to mysql
-$mysqli = new mysqli('localhost', 'Opa', 'y9zdxd66', 'map_places') or die(mysqli_error($mysqli));
+$mysqli = new mysqli('localhost', $username, $password, $database) or die(mysqli_error($mysqli));
 
 $update = false;
 $id = 0;
@@ -11,7 +13,6 @@ $address = '';
 $latitude = '';
 $longitude = '';
 $type = '';
-
 
 // Insert query
 if (isset($_POST['save'])){
@@ -38,7 +39,7 @@ if (isset($_GET['delete'])){
     
     header("location: index.php");
 }
-
+// Edit query
 if (isset($_GET['edit'])){
     $id = $_GET['edit'];
     $update = true;
@@ -52,7 +53,7 @@ if (isset($_GET['edit'])){
         $type = $row['type'];
     }
 }
-
+// Update query
 if (isset ($_POST['update'])){
     
     $id = $_POST['id'];
@@ -68,3 +69,39 @@ if (isset ($_POST['update'])){
     
     header('location: index.php');
 }
+
+$filename = "markers.xml";
+
+$result = $mysqli->query("SELECT * FROM markers") or die($mysqli->error());
+
+//Create new document 
+$dom = new DOMDocument;
+$dom->preserveWhiteSpace = FALSE;
+
+//add table in document 
+$table = $dom->appendChild($dom->createElement('table'));
+
+//add row in document 
+foreach($result as $row) {
+    $data = $dom->createElement('markers');
+    $table->appendChild($data);
+
+    //add column in document 
+    foreach($row as $name => $value) {
+
+        $col = $dom->createElement('marker', $value);
+        $data->appendChild($col);
+        $colattribute = $dom->createAttribute('name');
+        // Value for the created attribute
+        $colattribute->value = $name;
+        $col->appendChild($colattribute);           
+    }
+}
+
+$dom->formatOutput = true; // set the formatOutput attribute of domDocument to true 
+// save XML as string or file 
+$finalstring = $dom->saveXML(); // put string in finalstring
+$dom->save($filename); // save as file
+$dom->save('xml/'.$filename);
+
+$name = '';

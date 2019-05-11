@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Places</title>
+        <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="styles/styles.css">
     </head>
     <body>
@@ -11,16 +12,22 @@
         
         <?php if (isset($_SESSION['message'])): ?>
         
-        <div class="alert">
-        
-            <?php 
-                echo $_SESSION['message'];
-                unset($_SESSION['message']);
-            ?>
-        
+        <div class="alert-container">
+            <div class="alert">
+
+                <?php 
+                    echo $_SESSION['message'];
+                    unset($_SESSION['message']);
+                ?>
+
+            </div>
         </div>
         <?php endif; ?>
         
+        
+        <div class="btn-map">
+            <a href="map.php"> Map</a>
+        </div>
                 <div class="form-container">
             <h2>Add a marker</h2>
             <form action="process.php" method="POST">
