@@ -11,7 +11,7 @@ function initMap() {
 }
 
 */
-
+setTimeout(initMap, 100);
 var customLabel = {
         restaurant: {
           label: 'R'
@@ -31,16 +31,20 @@ var customLabel = {
       };
 
         function initMap() {
+            
+        // Create a map
         var map = new google.maps.Map(document.getElementById('map'), {
           center: new google.maps.LatLng(-33.863276, 151.207977),
-          zoom: 12
+          zoom: 12,
+          fullscreenControl: true
         });
         var infoWindow = new google.maps.InfoWindow;
 
-          // Change this depending on the name of your PHP or XML file
+          // Open the markers.xml file and get data from it by attribute name
           downloadUrl('markers.xml', function(data) {
             var xml = data.responseXML;
             var markers = xml.documentElement.getElementsByTagName('marker');
+            // Loop through the xml file and get necessary attributes
             Array.prototype.forEach.call(markers, function(markerElem) {
               var id = markerElem.getAttribute('id');
               var name = markerElem.getAttribute('name');
@@ -50,6 +54,7 @@ var customLabel = {
                   parseFloat(markerElem.getAttribute('latitude')),
                   parseFloat(markerElem.getAttribute('longitude')));
 
+              // Create infowindow with div, strong for name and text for address and type
               var infowincontent = document.createElement('div');
               var strong = document.createElement('strong');
               strong.textContent = name
@@ -59,12 +64,21 @@ var customLabel = {
               var text = document.createElement('text');
               text.textContent = address
               infowincontent.appendChild(text);
+              infowincontent.appendChild(document.createElement('br'));
+              
+              var text2 = document.createElement('text');
+              text2.textContent = type
+              infowincontent.appendChild(text2);
+              
+              
+              // Create custom label from the type (restaurant, bar, shop, home, test)
               var icon = customLabel[type] || {};
               var marker = new google.maps.Marker({
                 map: map,
                 position: point,
                 label: icon.label
               });
+              // Finally, add a listener to open infoWindow and show content
               marker.addListener('click', function() {
                 infoWindow.setContent(infowincontent);
                 infoWindow.open(map, marker);

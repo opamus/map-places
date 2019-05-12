@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <markers>
-  <marker id="5" name="Nomad" address="16 Foster Street, Surry Hills, NSW" latitude="-33.879917" longitude="151.210449" type="bar"/>
-  <marker id="2" name="Young Henrys" address="76 Wilford Street, Newtown, NSW" latitude="-33.898113" longitude="151.174469" type="bar"/>
-  <marker id="35" name="Kauppa" address="25 Foster Street, Surry Hills, NSW" latitude="-33.698112" longitude="151.474472" type="shop"/>
-  <marker id="1" name="Love Fish" address="580 Darling Street, Rozelle, NSW" latitude="-33.861034" longitude="151.171936" type="restaurant"/>
-  <marker id="36" name="Koti" address="Tolsankuja 5 A 2" latitude="60.120300" longitude="24.472317" type="home"/>
-  <marker id="8" name="Red Lantern" address="60 Riley Street, Darlinghurst, NSW" latitude="-33.874737" longitude="151.215530" type="restaurant"/>
+  <marker id="5" name="Nomad" address="16 Foster Street, Surry Hills, NSW" latitude="-33.879917" longitude="151.210449" type="bar" hours="06.00 - 22.00"/>
+  <marker id="2" name="Young Henrys" address="76 Wilford Street, Newtown, NSW" latitude="-33.898113" longitude="151.174469" type="bar" hours="08.00 - 23.00"/>
+  <marker id="35" name="Kauppa" address="25 Foster Street, Surry Hills, NSW" latitude="-33.698112" longitude="151.474472" type="shop" hours="10.00 - 21.00"/>
+  <marker id="1" name="Love Fish" address="580 Darling Street, Rozelle, NSW" latitude="-33.861034" longitude="151.171936" type="restaurant" hours="16.00 - 23.30"/>
+  <marker id="36" name="Koti" address="Tolsankuja 5 A 2" latitude="60.120300" longitude="24.472317" type="home, testi, koti" hours="24h"/>
+  <marker id="8" name="Red Lantern" address="60 Riley Street, Darlinghurst, NSW" latitude="-33.874737" longitude="151.215530" type="restaurant, park, beach" hours="18.00 - 04.00"/>
 </markers>

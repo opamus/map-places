@@ -13,6 +13,7 @@ $latitude = '';
 $longitude = '';
 $name = '';
 $type = '';
+$hours = '';
 
 // Insert query
 if (isset($_POST['save'])){
@@ -21,8 +22,9 @@ if (isset($_POST['save'])){
     $latitude = $_POST['latitude'];
     $longitude = $_POST['longitude'];
     $type = $_POST['type'];
+    $hours = $_POST['hours'];
 
-    $mysqli->query("INSERT INTO markers (name, address, latitude, longitude, type) VALUES('$name', '$address', '$latitude', '$longitude', '$type')") or die($mysqli->error);
+    $mysqli->query("INSERT INTO markers (name, address, latitude, longitude, type, hours) VALUES('$name', '$address', '$latitude', '$longitude', '$type', '$hours')") or die($mysqli->error);
     
     $_SESSION['message'] = "Location saved to map!";
     $_SESSION['msg_type'] = "success";
@@ -51,6 +53,7 @@ if (isset($_GET['edit'])){
         $latitude = $row['latitude'];
         $longitude = $row['longitude'];
         $type = $row['type'];
+        $hours = $row['hours'];
     }
 }
 // Update query
@@ -62,8 +65,9 @@ if (isset ($_POST['update'])){
     $latitude = $_POST['latitude'];
     $longitude = $_POST['longitude'];
     $type = $_POST['type'];
+    $hours = $_POST['hours'];
     
-    $mysqli->query("UPDATE markers SET name='$name', address='$address', latitude='$latitude', longitude='$longitude', type='$type' WHERE id=$id") or die ($mysqli->error);
+    $mysqli->query("UPDATE markers SET name='$name', address='$address', latitude='$latitude', longitude='$longitude', type='$type', hours='$hours' WHERE id=$id") or die ($mysqli->error);
     
     $_SESSION['message'] = "Location has been updated!";
     
@@ -124,6 +128,8 @@ while ($row = @mysqli_fetch_assoc($result)){
   $newnode->setAttribute("latitude", $row['latitude']);
   $newnode->setAttribute("longitude", $row['longitude']);
   $newnode->setAttribute("type", $row['type']);
+  $newnode->setAttribute("hours", $row['hours']);
+  
 }
 
 $dom->formatOutput = true;
