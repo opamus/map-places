@@ -26,14 +26,16 @@ Clone the repository to your local machine and open in NetBeans.
 Step 2
 
 ```
-Download Xampp, run Apache and MySQL in Xampp. open PhPMyAdmin in localhost and create a database "map_places" with a table "markers" in it.
+Download Xampp, run Apache and MySQL in Xampp. open PhPMyAdmin in localhost and create a database "map_places" with
+a table "markers" in it.
 Create necessary fields (ID, Name, Address, latitude, longitude, type and hours)
 ```
 
 Step 3
 
 ```
-Create a file called phpsqlajax_dbinfo.php in source files and add $username, $password and $database variables.
+Create a file called phpsqlajax_dbinfo.php in source files and add $username, 
+$password and $database variables.
 Get your api key from google and add it to map.php file.
 ```
 Step 4
