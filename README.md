@@ -26,9 +26,8 @@ Clone the repository to your local machine and open in NetBeans.
 Step 2
 
 ```
-Download Xampp, open PhPMyAdmin and create a database "map_places" with a table "markers" in it.
+Download Xampp, run Apache and MySQL in Xampp. open PhPMyAdmin in localhost and create a database "map_places" with a table "markers" in it.
 Create necessary fields (ID, Name, Address, latitude, longitude, type and hours)
-Run Apache and MySQL in Xampp.
 ```
 
 Step 3
