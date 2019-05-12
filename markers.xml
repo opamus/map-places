@@ -7,6 +7,6 @@
   <marker id="42" name="Campbelltown" address="New South-Wales 2560" latitude="-34.071033" longitude="150.815140" type="town" hours="00.00 - 24.00"/>
   <marker id="43" name="Liverpool" address="New South-Wales 2170" latitude="-33.924034" longitude="150.923401" type="park, town" hours="00.00 - 24.00"/>
   <marker id="44" name="Eastern Creek" address="New South-Wales 2766" latitude="-33.802624" longitude="150.855438" type="park" hours="00.00 - 24.00"/>
-  <marker id="45" name="Galston" address="New South-Wales 2159" latitude="-33.647694" longitude="151.092911" type="park, town" hours="00.00 - 24.00"/>
-  <marker id="46" name="Ku-Ring-Gai Chase" address="New South-Wales 2084" latitude="-33.624226" longitude="151.244171" type="park" hours="00.00 - 24.00"/>
+  <marker id="45" name="Galston" address="New South-Wales 2159" latitude="-33.647694" longitude="151.092911" type="park, town" hours=""/>
+  <marker id="46" name="Ku-Ring-Gai Chase" address="New South-Wales 2084" latitude="-33.624226" longitude="151.244171" type="park" hours=""/>
 </markers>
