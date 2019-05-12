@@ -30,22 +30,23 @@
         </div>
                 <div class="form-container">
             <h2>Add a marker</h2>
+            <p>Necessary fields marked with *</p>
             <form action="process.php" method="POST" onsubmit="return validateForm()" name="inputform">
                 <input type="hidden" name="id" value="<?php echo $id; ?>">
                 <div class="form-items">
-                    <input id="name" type="text" name="name" class="form-ctrl" value="<?php echo $name; ?>" placeholder="Location name*">
+                    <input id="name" type="text" name="name" class="form-ctrl" value="<?php echo $name; ?>" placeholder="*Location name">
                 </div>
                 <div class="form-items">
-                    <input id="address" type="text" name="address" class="form-ctrl" value="<?php echo $address; ?>" placeholder="Address*">
+                    <input id="address" type="text" name="address" class="form-ctrl" value="<?php echo $address; ?>" placeholder="*Address">
                 </div>
                 <div class="form-items">
-                    <input id="latitude" type="number" name="latitude" class="form-ctrl" step="0.000001" value="<?php echo $latitude; ?>" placeholder="Latitude*">
+                    <input id="latitude" type="number" name="latitude" class="form-ctrl" step="0.000001" value="<?php echo $latitude; ?>" placeholder="*Latitude">
                 </div>
                 <div class="form-items">
-                    <input id="longitude" type="number" name="longitude" class="form-ctrl" step="0.000001" value="<?php echo $longitude; ?>" placeholder="Longitude*">
+                    <input id="longitude" type="number" name="longitude" class="form-ctrl" step="0.000001" value="<?php echo $longitude; ?>" placeholder="*Longitude">
                 </div>
                 <div class="form-items">
-                    <input id="keywords" type="text" name="type" class="form-ctrl" value="<?php echo $type; ?>" placeholder="Location keywords (Separate with comma)*">
+                    <input id="keywords" type="text" name="type" class="form-ctrl" value="<?php echo $type; ?>" placeholder="*Location keywords (Separate with comma)">
                 </div>
                 <div class="form-items">
                     <input type="text" name="hours" class="form-ctrl" value="<?php echo $hours; ?>" placeholder="Opening hours (E.g. 06.00 - 22.00)">
@@ -61,6 +62,7 @@
             </form>
         </div>
         
+        
         <div class="center">
         <?php 
             require("phpsqlajax_dbinfo.php");
@@ -68,6 +70,14 @@
             $result = $mysqli->query("SELECT * FROM markers") or die($mysqli->error);
         ?>
             <h2>Added markers</h2>
+            
+            <div class="search">
+                <form action="search.php" method="get">
+                    <input type="text" name="keywords" autocomplete="off" placeholder="Search">
+                    <button type="submit" id="submit">Search</button>
+                </form>
+            </div>
+            
             <table class="table">
                 <thead>
                     <tr>

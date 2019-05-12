@@ -74,43 +74,6 @@ if (isset ($_POST['update'])){
     header('location: index.php');
 }
 
-/* $filename = "markers.xml";
-
-$result = $mysqli->query("SELECT * FROM markers WHERE 1") or die($mysqli->error());
-
-//Create new document 
-$dom = new DOMDocument;
-$dom->preserveWhiteSpace = FALSE;
-
-//add table in document 
-$table = $dom->appendChild($dom->createElement('table'));
-
-//add row in document 
-foreach($result as $row) {
-    $data = $dom->createElement('markers');
-    $table->appendChild($data);
-
-    //add column in document 
-    foreach($row as $name => $value) {
-
-        $col = $dom->createElement('marker', $value);
-        $data->appendChild($col);
-        $colattribute = $dom->createAttribute('name');
-        // Value for the created attribute
-        $colattribute->value = $name;
-        $col->appendChild($colattribute);           
-    }
-}
-
-$dom->formatOutput = true; // set the formatOutput attribute of domDocument to true 
-// save XML as string or file 
-$finalstring = $dom->saveXML(); // put string in finalstring
-$dom->save($filename); // save as file
-$dom->save('xml/'.$filename);
-
-$name = ''; */
-
-
 $dom = new DOMDocument;
 $node = $dom->createElement("markers");
 $parnode = $dom->appendChild($node);

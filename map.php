@@ -9,6 +9,10 @@
         <a href="index.php"> Markers </a>
       </div>
       
+      <div class="open-places">
+          <button>Show open locations</button>
+      </div>
+      
      <div id="map-container">
         <div id="map"></div>
     </div>

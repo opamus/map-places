@@ -40,6 +40,27 @@ body {
     td {
         padding-top: 12px;
     }
+    .search {
+        input {
+            padding: 11px;
+            border-radius: 12px;
+            border: none;
+        }
+        #submit {
+            padding: 11px;
+            border: none;
+            background-color:#7cbde8;
+            color: white;
+            border-radius: 6px;
+            font-size: 12px;
+            text-transform: uppercase;
+            cursor: pointer;
+            margin-left: 5px;
+            &:hover {
+                background-color: #57ace5;
+            }
+        }
+    }
 }
 
 .btn {
@@ -138,6 +159,27 @@ body {
     }
 }
 
+.open-places {
+    position: absolute;
+    top: 57px;
+    right: 10px;
+    z-index: 9999;
+    button {
+       text-decoration: none;
+       border: none;
+       color: white;
+       background-color: #4392c6;
+       font-size: 14px;
+       padding: 5px;
+       border-radius: 3px;
+       box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.15);
+       cursor: pointer;
+       &:hover {
+           background-color: #2586c6;
+       }
+    }
+}
+
 .form-container {
     width: 55%;
     max-width: 900px;
@@ -152,6 +194,11 @@ body {
         color: rgb(152,160,163);
         margin-bottom: 35px;
         font-weight: 100;
+    }
+    p{
+        text-align: center;
+        font-size: 13px;
+        color: gray;
     }
     form {
         width: 315px;

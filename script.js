@@ -1,16 +1,3 @@
-/* setTimeout(initMap, 100);
-function initMap() {
-    var mapOptions =
-       {
-            zoom: 12,
-            center:new google.maps.LatLng(-33.879917,151.210449) //center over sydney
-       };
-
-   map = new google.maps.Map(document.getElementById('map'), mapOptions);
-
-}
-
-*/
 setTimeout(initMap, 100);
 var customLabel = {
         restaurant: {
@@ -25,9 +12,9 @@ var customLabel = {
         home: {
             label: 'H'
         },
-        test: {
-            label: 'T'
-        },
+        park: {
+            label: 'P'
+        }
       };
 
         function initMap() {
@@ -35,8 +22,9 @@ var customLabel = {
         // Create a map
         var map = new google.maps.Map(document.getElementById('map'), {
           center: new google.maps.LatLng(-33.863276, 151.207977),
-          zoom: 12,
-          fullscreenControl: true
+          zoom: 11,
+          fullscreenControl: true,
+          streetViewControl: false
         });
         var infoWindow = new google.maps.InfoWindow;
 
@@ -46,10 +34,11 @@ var customLabel = {
             var markers = xml.documentElement.getElementsByTagName('marker');
             // Loop through the xml file and get necessary attributes
             Array.prototype.forEach.call(markers, function(markerElem) {
-              var id = markerElem.getAttribute('id');
+              // var id = markerElem.getAttribute('id');
               var name = markerElem.getAttribute('name');
               var address = markerElem.getAttribute('address');
               var type = markerElem.getAttribute('type');
+              var hours = markerElem.getAttribute('hours');
               var point = new google.maps.LatLng(
                   parseFloat(markerElem.getAttribute('latitude')),
                   parseFloat(markerElem.getAttribute('longitude')));
@@ -66,9 +55,14 @@ var customLabel = {
               infowincontent.appendChild(text);
               infowincontent.appendChild(document.createElement('br'));
               
-              var text2 = document.createElement('text');
+              var text2 = document.createElement('p');
               text2.textContent = type
               infowincontent.appendChild(text2);
+              
+              var text3 = document.createElement('p');
+              text3.style="color:#2d7caf; margin-bottom:0;";
+              text3.textContent = hours
+              infowincontent.appendChild(text3);
               
               
               // Create custom label from the type (restaurant, bar, shop, home, test)
@@ -106,3 +100,14 @@ var customLabel = {
       }
 
       function doNothing() {}
+      
+      
+      //show only open places and places with no hours
+      function showOpen() {
+          var today = new Date();
+          var time = today.getHours() + ":" + today.getMinutes();
+          console.log(time);
+          
+      }
+      
+      showOpen();
