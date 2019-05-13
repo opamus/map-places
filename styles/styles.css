@@ -78,7 +78,7 @@ body {
   border-radius: 12px;
   border: none;
 }
-.center .search #submit {
+.center .search button {
   padding: 11px;
   border: none;
   background-color: #7cbde8;
@@ -89,7 +89,7 @@ body {
   cursor: pointer;
   margin-left: 5px;
 }
-.center .search #submit:hover {
+.center .search button:hover {
   background-color: #57ace5;
 }
 

@@ -77,6 +77,7 @@
                 <form action="search.php" method="get">
                     <input type="text" name="keywords" autocomplete="off" placeholder="Search">
                     <button type="submit" id="submit">Search</button>
+                    <button type="submit" id="submit2">Show All</button>
                 </form>
             </div>
             
