@@ -25,11 +25,9 @@ if (isset($_POST['save'])){
     $hours = $_POST['hours'];
 
     $mysqli->query("INSERT INTO markers (name, address, latitude, longitude, type, hours) VALUES('$name', '$address', '$latitude', '$longitude', '$type', '$hours')") or die($mysqli->error);
-    
     $_SESSION['message'] = "Location saved to map!";
     $_SESSION['msg_type'] = "success";
-    
-    header("location: index.php");        
+    header("location: map.php");      
 }
 // Delete query
 if (isset($_GET['delete'])){
@@ -38,8 +36,8 @@ if (isset($_GET['delete'])){
     
     $_SESSION['message'] = "Marker deleted!";
     $_SESSION['msg_type'] = "danger";
-    
-    header("location: index.php");
+    header("location: map.php");
+
 }
 // Edit query
 if (isset($_GET['edit'])){
@@ -70,8 +68,7 @@ if (isset ($_POST['update'])){
     $mysqli->query("UPDATE markers SET name='$name', address='$address', latitude='$latitude', longitude='$longitude', type='$type', hours='$hours' WHERE id=$id") or die ($mysqli->error);
     
     $_SESSION['message'] = "Location has been updated!";
-    
-    header('location: index.php');
+    header('location: map.php');
 }
 
 $dom = new DOMDocument;

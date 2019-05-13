@@ -1,22 +1,20 @@
-setTimeout(initMap, 100);
-var customLabel = {
-        restaurant: {
-          label: 'R'
-        },
-        bar: {
-          label: 'B'
-        },
-        shop: {
-            label: 'S'
-        },
-        home: {
-            label: 'H'
-        },
-        park: {
-            label: 'P'
-        }
-      };
+var modal = document.getElementById('modal');
+var btn = document.getElementById('btn');
+var span = document.getElementById('close');
 
+btn.onclick = function() {
+    modal.style.display = 'block';
+}
+span.onclick = function() {
+    modal.style.display = 'none';
+}
+window.onclick = function(event) {
+    if(event.target == modal) {
+        modal.style.display = 'none';
+    }
+}
+
+setTimeout(initMap, 100);
         function initMap() {
             
             
@@ -85,11 +83,9 @@ var customLabel = {
                   infowincontent.appendChild(text3);
               }
               // Create custom label from the type (restaurant, bar, shop, home, test)
-              var icon = customLabel[type] || {};
               var marker = new google.maps.Marker({
                 map: map,
                 position: point,
-                label: icon.label
               });
               
               // Finally, add a listener to open infoWindow and show content
@@ -102,13 +98,23 @@ var customLabel = {
               button.addEventListener('click', getOpenLocations);
               
               function getOpenLocations() {
-                  if(text3.textContent == "Closed. Opening hours: " + hours) {
+                  if(text3.textContent === "Closed. Opening hours: " + hours) {
                       marker.setVisible(false);
                       button.innerHTML = "Show closed locations";
-                  } else {
+                      button.removeEventListener('click', getOpenLocations);
+                      button.addEventListener('click', showClosedLocations);
+                  } else  {
                       doNothing();
                   }
-              }         
+              }
+              
+              function showClosedLocations () {
+                  marker.setVisible(true);
+                  button.innerHTML = "Hide closed locations";
+                  button.removeEventListener('click', showClosedLocations);
+                  button.addEventListener('click', getOpenLocations);
+              }
+              
               
             });
           });
