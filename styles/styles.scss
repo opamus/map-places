@@ -46,13 +46,13 @@ body {
 }
 
 #close {
-    color: white;
+    color: black;
     float: right;
-    font-size: 42px;
+    font-size: 45px;
     cursor: pointer;
     &:hover {
         color: gray;
-        transition-duration: 0.3s;
+        transition-duration: 0.2s;
     }
 }
 

@@ -65,8 +65,8 @@ setTimeout(initMap, 100);
               
               var first = hours.split('-')[0];
               var second = hours.split('-')[1];
-              
-              if (hour >= second || hour <= first) {
+              // Change infowindow text if place is closed or open or no hours provided
+              if (hour >= second || hour < first) {
                   var text3 = document.createElement('p');
                   text3.style="color:red; margin-bottom:0;";
                   text3.textContent = "Closed. Opening hours: " + hours;
