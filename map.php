@@ -10,7 +10,7 @@
       </div>
       
       <div class="open-places">
-          <button>Show open locations</button>
+          <button id="open">Hide closed locations</button>
       </div>
       
      <div id="map-container">

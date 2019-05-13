@@ -19,6 +19,7 @@ var customLabel = {
 
         function initMap() {
             
+            
         // Create a map
         var map = new google.maps.Map(document.getElementById('map'), {
           center: new google.maps.LatLng(-33.863276, 151.207977),
@@ -59,12 +60,30 @@ var customLabel = {
               text2.textContent = type
               infowincontent.appendChild(text2);
               
-              var text3 = document.createElement('p');
-              text3.style="color:#2d7caf; margin-bottom:0;";
-              text3.textContent = hours
-              infowincontent.appendChild(text3);
+              // set if the place is open, no hours provided or closed
+              var today = new Date();
+              var hour = today.getHours();
+              console.log(hour);
               
+              var first = hours.split('-')[0];
+              var second = hours.split('-')[1];
               
+              if (hour >= second || hour <= first) {
+                  var text3 = document.createElement('p');
+                  text3.style="color:red; margin-bottom:0;";
+                  text3.textContent = "Closed. Opening hours: " + hours;
+                  infowincontent.appendChild(text3);
+              } else if (hours === ""){
+                  var text3 = document.createElement('p');
+                  text3.style="color:#2d7caf; margin-bottom:0;";
+                  text3.textContent = "No opening hours provided.";
+                  infowincontent.appendChild(text3);
+              } else {
+                  var text3 = document.createElement('p');
+                  text3.style="color:#2d7caf; margin-bottom:0;";
+                  text3.textContent = hours;
+                  infowincontent.appendChild(text3);
+              }
               // Create custom label from the type (restaurant, bar, shop, home, test)
               var icon = customLabel[type] || {};
               var marker = new google.maps.Marker({
@@ -72,11 +91,25 @@ var customLabel = {
                 position: point,
                 label: icon.label
               });
+              
               // Finally, add a listener to open infoWindow and show content
               marker.addListener('click', function() {
                 infoWindow.setContent(infowincontent);
                 infoWindow.open(map, marker);
               });
+              
+              var button = document.getElementById("open");
+              button.addEventListener('click', getOpenLocations);
+              
+              function getOpenLocations() {
+                  if(text3.textContent == "Closed. Opening hours: " + hours) {
+                      marker.setVisible(false);
+                      button.innerHTML = "Show closed locations";
+                  } else {
+                      doNothing();
+                  }
+              }         
+              
             });
           });
         }
@@ -101,13 +134,3 @@ var customLabel = {
 
       function doNothing() {}
       
-      
-      //show only open places and places with no hours
-      function showOpen() {
-          var today = new Date();
-          var time = today.getHours() + ":" + today.getMinutes();
-          console.log(time);
-          
-      }
-      
-      showOpen();
