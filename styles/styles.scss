@@ -43,6 +43,11 @@ body {
     height: auto;
     background-color: #c9d3d8;
     border-radius: 3px;
+    box-shadow: 0px 0px 85px 39px rgba(0,0,0,0.35);
+}
+
+.output {
+    margin-top: 15px;
 }
 
 #close {
@@ -69,6 +74,7 @@ body {
     }
     table {
         padding: 20px;
+        padding-top: 0px;
         width: 100%;
     }
     td {
@@ -76,12 +82,13 @@ body {
     }
     .search {
         input {
-            padding: 11px;
+            padding: 13px;
+            width: 250px;
             border-radius: 12px;
             border: none;
         }
         button {
-            padding: 11px;
+            padding: 13px;
             border: none;
             background-color:#7cbde8;
             color: white;
@@ -263,13 +270,66 @@ body {
     display: block;
     width: 100%;
     height: 100%;
-    min-width: 800px;
     margin:auto;
     z-index: 1;
     #map {
         width: 100%;
-        min-width: 800px;
         height: 100%;
         z-index: 1;
+    }
+}
+
+
+@media only screen and (max-width: 1390px) {
+    .modal-content {
+        width: 98%;
+        margin-top: 10%;
+        min-height: 600px;
+    }
+    
+    .center {
+        width: 100%;
+    }
+    
+    .hidelaptop {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 930px) {
+    .form-container {
+        width: 100%;
+        padding: 0;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    
+    .modal-content {
+        padding: 0px;
+        margin-top: 5px;
+        
+        #close {
+            padding-right: 15px;
+        }
+    }
+    .center {
+        min-width: 300px;
+        table {
+            padding: 0;
+        }
+    }
+    .hidemobile {
+        display: none;
+    }
+    
+    #mobile-ctrl {
+        height: 55px;
+    }
+    .btn {
+        display: block;
+    }
+    
+    .btn-delete {
+        display: block;
     }
 }

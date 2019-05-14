@@ -2,12 +2,12 @@
 <markers>
   <marker id="5" name="Nomad" address="16 Foster Street, Surry Hills, NSW" latitude="-33.879917" longitude="151.210449" type="bar" hours="6.00 - 22.00"/>
   <marker id="2" name="Young Henrys" address="76 Wilford Street, Newtown, NSW" latitude="-33.898113" longitude="151.174469" type="bar" hours="21.00 - 23.00"/>
-  <marker id="55" name="" address="Tolsankuja 5 A 2" latitude="76.000000" longitude="67.000000" type="Home" hours="10.00 - 21.00"/>
   <marker id="1" name="Love Fish" address="580 Darling Street, Rozelle, NSW" latitude="-33.861034" longitude="151.171936" type="restaurant" hours="16.00 - 23.30"/>
   <marker id="8" name="Red Lantern" address="60 Riley Street, Darlinghurst, NSW" latitude="-33.874737" longitude="151.215530" type="restaurant, park, beach" hours="18.00 - 21.00"/>
+  <marker id="57" name="Nomad" address="Orastie 4C" latitude="55.000000" longitude="35.000000" type="Workplace" hours=""/>
   <marker id="42" name="Campbelltown" address="New South-Wales 2560" latitude="-34.071033" longitude="150.815140" type="town" hours="0.00 - 24.00"/>
   <marker id="43" name="Liverpool" address="New South-Wales 2170" latitude="-33.924034" longitude="150.923401" type="park, town" hours="0.00 - 24.00"/>
   <marker id="44" name="Eastern Creek" address="New South-Wales 2766" latitude="-33.802624" longitude="150.855438" type="park" hours="0.00 - 24.00"/>
-  <marker id="45" name="Galston" address="New South-Wales 2159" latitude="-33.647694" longitude="151.092911" type="park, town" hours=""/>
+  <marker id="45" name="Galston" address="New South-Wales 2159" latitude="-33.647694" longitude="151.092911" type="park, town" hours="6.00 - 22.00"/>
   <marker id="46" name="Ku-Ring-Gai Chase" address="New South-Wales 2084" latitude="-33.624226" longitude="151.244171" type="park" hours=""/>
 </markers>

@@ -51,7 +51,7 @@
                     <input id="keywords" type="text" name="type" class="form-ctrl" value="<?php echo $type; ?>" placeholder="*Location keywords (Separate with comma)">
                 </div>
                 <div class="form-items">
-                    <input type="text" name="hours" class="form-ctrl" value="<?php echo $hours; ?>" placeholder="Opening hours (E.g. 06.00 - 22.00)">
+                    <input type="text" name="hours" class="form-ctrl" value="<?php echo $hours; ?>" placeholder="Opening hours (E.g. 6.00 - 22.00)">
                 </div>
                 <div class="form-items">
                     
@@ -71,36 +71,39 @@
             $mysqli = new mysqli('localhost', $username, $password, $database) or die(mysqli_error($mysqli));
             $result = $mysqli->query("SELECT * FROM markers") or die($mysqli->error);
         ?>
-            <h2>Added markers</h2>
+            <h2>Search for markers</h2>
             
             <div class="search">
-                <form action="search.php" method="get">
-                    <input type="text" name="keywords" autocomplete="off" placeholder="Search">
+                <form action="map.php" method="post">
+                    <input type="text" name="search" autocomplete="off" placeholder="Search for names and keywords">
                     <button type="submit" id="submit">Search</button>
-                    <button type="submit" id="submit2">Show All</button>
                 </form>
             </div>
             
+            <?php 
+                print("$output");
+            ?>
+            <h2>All markers</h2>
             <table class="table">
                 <thead>
                     <tr>
                         <th>Name</th>
                         <th>Address</th>
-                        <th>Keywords</th>
-                        <th>Latitude</th>
-                        <th>Longitude</th>
-                        <th>Opening hours</th>
+                        <th class="hidemobile">Keywords</th>
+                        <th class="hidelaptop">Latitude</th>
+                        <th class="hidelaptop">Longitude</th>
+                        <th class="hidemobile">Open hours</th>
                         <th colspan="2"></th>
                     </tr>
                 </thead>
                 <?php while($row = $result->fetch_assoc()): ?>
-                <tr>
+                <tr id="mobile-ctrl">
                     <td><?php echo $row['name'];?></td>
                     <td><?php echo $row['address'];?></td>
-                    <td><?php echo $row['type'];?></td>
-                    <td><?php echo $row['latitude'];?></td>
-                    <td><?php echo $row['longitude'];?></td>
-                    <td><?php echo $row['hours'];?></td>
+                    <td class="hidemobile"><?php echo $row['type'];?></td>
+                    <td class="hidelaptop"><?php echo $row['latitude'];?></td>
+                    <td class="hidelaptop"><?php echo $row['longitude'];?></td>
+                    <td class="hidemobile"><?php echo $row['hours'];?></td>
                     
                     <td>
                         <a href="map.php?edit=<?php echo $row['id'];?>" class="btn">Edit</a>

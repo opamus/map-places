@@ -16,8 +16,6 @@ window.onclick = function(event) {
 
 setTimeout(initMap, 100);
         function initMap() {
-            
-            
         // Create a map
         var map = new google.maps.Map(document.getElementById('map'), {
           center: new google.maps.LatLng(-33.863276, 151.207977),

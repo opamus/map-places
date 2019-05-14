@@ -96,3 +96,33 @@ $dom->formatOutput = true;
 $finalstring = $dom->saveXML();
 $dom->save($filename); // save as file
 $dom->save('xml/'.$filename);
+
+
+// Search query
+$output = '';
+if(isset($_POST['search'])) {
+    $searchq = $_POST['search'];
+    
+    
+    $result = $mysqli->query("SELECT * FROM markers WHERE type LIKE '%$searchq%' OR name LIKE'%$searchq%'") or die($mysqli->error());
+    $count = $result->num_rows;
+    if ($count == 0){
+        $output = '<div class="output"> There was no search results! </div>';
+    } else if($searchq == "") {
+        $output = "";
+    } else {
+        while($row = @mysqli_fetch_assoc($result)) {
+            $name = $row['name'];
+            $address = $row['address'];
+            $type = $row['type'];
+            $hours = $row['hours'];
+            
+            $output .= '<div class="output"> '.$name.', '.$address.', '.$type.', '.$hours.' </div>';
+        }
+    }
+    
+    $name = "";
+    $address = "";
+    $type = "";
+    $hours = "";
+}
